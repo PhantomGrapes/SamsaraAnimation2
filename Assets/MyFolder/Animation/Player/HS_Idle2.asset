@@ -1,0 +1,62 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ae0543fe805424df99fe08ce744cbe49, type: 3}
+  m_Name: HS_Idle2
+  m_EditorClassIdentifier: 
+  m_PoseEntries:
+  - path: Skelton
+    localPosition: {x: 0, y: -1.91, z: 0}
+    localRotation: {x: 0, y: 0, z: 0.7071068, w: 0.7071068}
+    localScale: {x: 1, y: 1, z: 1}
+  - path: Skelton/B_LowerCorp
+    localPosition: {x: 1.9613672, y: 0.0859946, z: 0}
+    localRotation: {x: 0, y: 0, z: -0.119669, w: 0.9928139}
+    localScale: {x: 0.50000024, y: 0.50000024, z: 1}
+  - path: Skelton/B_LowerCorp/B_UpperCorp
+    localPosition: {x: 1.0461142, y: 0, z: 0}
+    localRotation: {x: 0, y: 0, z: -0.050183266, w: 0.9987401}
+    localScale: {x: 1, y: 1, z: 1}
+  - path: Skelton/B_LowerCorp/B_UpperCorp/B_Head
+    localPosition: {x: 0.6486647, y: 0.0000002438319, z: 0}
+    localRotation: {x: 0, y: 0, z: 0.0037175354, w: 0.9999931}
+    localScale: {x: 1, y: 1, z: 1}
+  - path: Skelton/B_LowerCorp/B_UpperCorp/B_LeftUpperArm
+    localPosition: {x: 0.3495224, y: 0.36957648, z: 0}
+    localRotation: {x: -0, y: 0, z: -0.9775595, w: -0.2106594}
+    localScale: {x: 1, y: 1, z: 1}
+  - path: Skelton/B_LowerCorp/B_UpperCorp/B_LeftUpperArm/B_LeftLowerArm
+    localPosition: {x: 1.048008, y: -0.00000011920929, z: 0}
+    localRotation: {x: 0, y: 0, z: 0.56558603, w: 0.8246893}
+    localScale: {x: 1, y: 1, z: 1}
+  - path: Skelton/B_LowerCorp/B_UpperCorp/B_LeftUpperArm/B_LeftLowerArm/WeaponSlot/HS/B_Sword
+    localPosition: {x: 0, y: 0, z: 0}
+    localRotation: {x: 0, y: 0, z: 0.3601189, w: 0.9329064}
+    localScale: {x: 1, y: 1, z: 1}
+  - path: Skelton/B_LowerCorp/B_UpperCorp/B_RightUpperArm
+    localPosition: {x: 0.3308834, y: -0.34171358, z: 0}
+    localRotation: {x: 0, y: 0, z: -0.9939954, w: 0.10942207}
+    localScale: {x: 1, y: 1, z: 1}
+  - path: Skelton/B_LowerCorp/B_UpperCorp/B_RightUpperArm/B_RightLowerArm
+    localPosition: {x: 0.56488425, y: -0.00000010430813, z: 0}
+    localRotation: {x: 0, y: 0, z: 0.33606803, w: 0.9418377}
+    localScale: {x: 1, y: 1, z: 1}
+  - path: Skelton/B_LeftLag
+    localPosition: {x: 1.2738085, y: 0.19458699, z: 0}
+    localRotation: {x: -0, y: 0, z: -0.9790952, w: -0.20340243}
+    localScale: {x: 0.50000024, y: 0.50000024, z: 1}
+  - path: Skelton/B_RightLag
+    localPosition: {x: 1.25874, y: -0.29253745, z: 0}
+    localRotation: {x: -0, y: 0, z: -0.9999138, w: -0.013133021}
+    localScale: {x: 0.5000003, y: 0.5000003, z: 1}
+  - path: Skelton/B_Butt
+    localPosition: {x: 1.9145697, y: 0.085534215, z: 0}
+    localRotation: {x: 0, y: 0, z: -0.9975207, w: 0.07037457}
+    localScale: {x: 0.50000024, y: 0.50000024, z: 1}

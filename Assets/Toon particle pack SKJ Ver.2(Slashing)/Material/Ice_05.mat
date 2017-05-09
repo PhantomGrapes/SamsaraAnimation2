@@ -1,0 +1,41 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!21 &2100000
+Material:
+  serializedVersion: 6
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_Name: Ice_05
+  m_Shader: {fileID: 4800000, guid: a12d9b8f9ea136e4ebbb8141a81c8482, type: 3}
+  m_ShaderKeywords: Enable_AlphaMask Enable_Bloom
+  m_LightmapFlags: 5
+  m_EnableInstancingVariants: 0
+  m_CustomRenderQueue: -1
+  stringTagMap: {}
+  disabledShaderPasses: []
+  m_SavedProperties:
+    serializedVersion: 3
+    m_TexEnvs:
+    - _CutTex:
+        m_Texture: {fileID: 2800000, guid: f1aedaeb03e25dc49ac6957f65ebe642, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _MainTex:
+        m_Texture: {fileID: 2800000, guid: f1aedaeb03e25dc49ac6957f65ebe642, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    m_Floats:
+    - _CutRotation: 0
+    - _Cutoff: 0.878
+    - _EmissionGain: 0.084
+    - _InvFade: 2
+    - _MainRotation: 0
+    - _UVCutScrollX: 0
+    - _UVCutScrollY: 0
+    - _UVMirrorX: 0
+    - _UVMirrorY: 0
+    - _UVScrollX: 0
+    - _UVScrollY: 0
+    m_Colors:
+    - _TintColor: {r: 0.5, g: 0.5, b: 0.5, a: 0.5}
