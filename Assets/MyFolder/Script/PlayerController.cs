@@ -47,6 +47,7 @@ public class PlayerController : MonoBehaviour {
     public ParticleSystem slashClip2;
     public ParticleSystem slashClip4;
     public ParticleSystem slashClip5;
+    private DartPivotController dart;
     [Header("Camera Shake")]
     public float shakeTimer;
     public float shakeAmount;
@@ -57,6 +58,7 @@ public class PlayerController : MonoBehaviour {
         cameraController = FindObjectOfType<CameraController>();
         animator = GetComponent<Animator>();
         grabLedgeController = FindObjectOfType<GrabLedgeController>();
+        dart = FindObjectOfType<DartPivotController>();
 
         width = GetComponent<BoxCollider2D>().size.x + 0.2f;
         height = GetComponent<BoxCollider2D>().size.y + 0.2f;
@@ -230,18 +232,27 @@ public class PlayerController : MonoBehaviour {
             }
         }
 
-        if(Input.GetKeyDown(KeyCode.K) || Input.GetKeyDown(KeyCode.Joystick1Button3))
+        if(dart.finishThrow && (Input.GetKeyDown(KeyCode.K) || Input.GetKeyDown(KeyCode.Joystick1Button3)))
         {
             if (!animator.GetCurrentAnimatorStateInfo(0).IsTag("attack") && !isRolling)
             {
                 animator.SetTrigger("throw");
+                dart.setThrowParameters();
+                dart.StartRotationSelection();
+                
             }
         }
+        if(dart.finishToThrow && (Input.GetAxisRaw("Horizontal") != 0 && (Input.GetKey(KeyCode.K) || Input.GetKey(KeyCode.Joystick1Button3))))
+        {
+            dart.AdjustDart(Input.GetAxisRaw("Horizontal"));
+        }
 
+        // 如果人中途取消了，动画回到正常状态，同时需要调用dart.FinishThrow()
         if(Input.GetKeyUp(KeyCode.K) || Input.GetKeyUp(KeyCode.Joystick1Button3))
         {
             animator.SetTrigger("doThrow");
-        }
+                dart.StartDart();
+            }   
         else
         {
             animator.ResetTrigger("doThrow");
@@ -394,5 +405,15 @@ public class PlayerController : MonoBehaviour {
         isMovingToFootHold = false;
         isMovingToPlatform = false;
         Physics2D.IgnoreCollision(GetComponent<BoxCollider2D>(), grabLedgeController.ledge, false);
+    }
+
+    public void FinishToThrow()
+    {
+        dart.FinishToThrow();
+    }
+
+    public void FinishThrow()
+    {
+        dart.FinishThrow();
     }
 }
