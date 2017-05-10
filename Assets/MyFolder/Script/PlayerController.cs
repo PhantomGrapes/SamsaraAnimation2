@@ -177,14 +177,14 @@ public class PlayerController : MonoBehaviour {
         {
             if (facingRight)
             {
-                if ((Input.GetKeyDown(KeyCode.L) || Input.GetKeyDown(KeyCode.Joystick1Button1)) && !animator.GetCurrentAnimatorStateInfo(0).IsTag("roll") && !!animator.GetCurrentAnimatorStateInfo(0).IsTag("attack") && !!animator.GetCurrentAnimatorStateInfo(0).IsTag("attackTrans"))
+                if ((Input.GetKeyDown(KeyCode.L) || Input.GetKeyDown(KeyCode.Joystick1Button1)) && !animator.GetCurrentAnimatorStateInfo(0).IsTag("roll") && !animator.GetCurrentAnimatorStateInfo(0).IsTag("attack") && !animator.GetCurrentAnimatorStateInfo(0).IsTag("attackTrans"))
                 {
                     animator.SetTrigger("roll");
                 }
             }
             else
             {
-                if ((Input.GetKeyDown(KeyCode.L) || Input.GetKeyDown(KeyCode.Joystick1Button1)) && !animator.GetCurrentAnimatorStateInfo(0).IsTag("roll") && !!animator.GetCurrentAnimatorStateInfo(0).IsTag("attack") && !!animator.GetCurrentAnimatorStateInfo(0).IsTag("attackTrans"))
+                if ((Input.GetKeyDown(KeyCode.L) || Input.GetKeyDown(KeyCode.Joystick1Button1)) && !animator.GetCurrentAnimatorStateInfo(0).IsTag("roll") && !animator.GetCurrentAnimatorStateInfo(0).IsTag("attack") && !animator.GetCurrentAnimatorStateInfo(0).IsTag("attackTrans"))
                 {
                     animator.SetTrigger("roll");
                 }
