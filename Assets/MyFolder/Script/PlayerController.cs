@@ -177,14 +177,14 @@ public class PlayerController : MonoBehaviour {
         {
             if (facingRight)
             {
-                if ((Input.GetKeyDown(KeyCode.L) || Input.GetKeyDown(KeyCode.Joystick1Button1)) && !animator.GetCurrentAnimatorStateInfo(0).IsTag("roll"))
+                if ((Input.GetKeyDown(KeyCode.L) || Input.GetKeyDown(KeyCode.Joystick1Button1)) && !animator.GetCurrentAnimatorStateInfo(0).IsTag("roll") && !!animator.GetCurrentAnimatorStateInfo(0).IsTag("attack") && !!animator.GetCurrentAnimatorStateInfo(0).IsTag("attackTrans"))
                 {
                     animator.SetTrigger("roll");
                 }
             }
             else
             {
-                if ((Input.GetKeyDown(KeyCode.L) || Input.GetKeyDown(KeyCode.Joystick1Button1)) && !animator.GetCurrentAnimatorStateInfo(0).IsTag("roll"))
+                if ((Input.GetKeyDown(KeyCode.L) || Input.GetKeyDown(KeyCode.Joystick1Button1)) && !animator.GetCurrentAnimatorStateInfo(0).IsTag("roll") && !!animator.GetCurrentAnimatorStateInfo(0).IsTag("attack") && !!animator.GetCurrentAnimatorStateInfo(0).IsTag("attackTrans"))
                 {
                     animator.SetTrigger("roll");
                 }
@@ -227,6 +227,22 @@ public class PlayerController : MonoBehaviour {
             if (!animator.GetCurrentAnimatorStateInfo(0).IsTag("attack") && !isRolling)
             {
                 animator.SetTrigger("attack");
+            }
+        }
+
+        if(Input.GetKeyDown(KeyCode.K) || Input.GetKeyDown(KeyCode.Joystick1Button3))
+        {
+            if (!animator.GetCurrentAnimatorStateInfo(0).IsTag("attack") && !isRolling)
+            {
+                animator.SetTrigger("throw");
+            }
+        }
+
+        if(Input.GetKeyUp(KeyCode.K) || Input.GetKeyUp(KeyCode.Joystick1Button3))
+        {
+            if (!animator.GetCurrentAnimatorStateInfo(0).IsTag("attack") && !isRolling)
+            {
+                animator.SetTrigger("doThrow");
             }
         }
 
