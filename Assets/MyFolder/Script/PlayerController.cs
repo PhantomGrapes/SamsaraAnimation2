@@ -240,10 +240,11 @@ public class PlayerController : MonoBehaviour {
 
         if(Input.GetKeyUp(KeyCode.K) || Input.GetKeyUp(KeyCode.Joystick1Button3))
         {
-            if (!animator.GetCurrentAnimatorStateInfo(0).IsTag("attack") && !isRolling)
-            {
-                animator.SetTrigger("doThrow");
-            }
+            animator.SetTrigger("doThrow");
+        }
+        else
+        {
+            animator.ResetTrigger("doThrow");
         }
 
         if (animator.GetCurrentAnimatorStateInfo(0).IsTag("attack"))
