@@ -11,9 +11,9 @@ public class MinionFrog : MonoBehaviour {
         frog = GetComponent<Rigidbody2D>();    
     }
 
-    public void AddHorizontalForce(float force)
+    public void AddHorizontalForce(float forceH, float forceV)
     {
-        frog.AddForce(new Vector2(force, 0));
+        frog.AddForce(new Vector2(forceH, forceV));
     }
 
     public void AddVerticalForce(float force)

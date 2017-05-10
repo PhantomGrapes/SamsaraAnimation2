@@ -27,11 +27,11 @@ public class Weapon : MonoBehaviour {
                 {
                     if (player.facingRight)
                     {
-                        enemy.AddHorizontalForce(player.horizontalForce);
+                        enemy.AddHorizontalForce(player.horizontalForce, player.verticalForce);
                     }
                     else
                     {
-                        enemy.AddHorizontalForce(-player.horizontalForce);
+                        enemy.AddHorizontalForce(-player.horizontalForce, player.verticalForce);
                     }
                 }
             }

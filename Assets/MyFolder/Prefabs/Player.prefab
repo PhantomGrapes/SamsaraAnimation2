@@ -1265,7 +1265,7 @@ MonoBehaviour:
   isPressingS: 0
   isPressingW: 0
   verticalForce: 3000
-  horizontalForce: 20000
+  horizontalForce: 10000
   slashClip1And3: {fileID: 198870952506256308}
   slashClip2: {fileID: 198137225048986852}
   slashClip4: {fileID: 198701594203135728}
