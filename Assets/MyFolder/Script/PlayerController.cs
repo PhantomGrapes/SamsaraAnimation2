@@ -251,8 +251,8 @@ public class PlayerController : MonoBehaviour {
         if(Input.GetKeyUp(KeyCode.K) || Input.GetKeyUp(KeyCode.Joystick1Button3))
         {
             animator.SetTrigger("doThrow");
-                dart.StartDart();
-            }   
+            dart.StartDart();
+        }   
         else
         {
             animator.ResetTrigger("doThrow");
