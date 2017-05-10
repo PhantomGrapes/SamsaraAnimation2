@@ -13,50 +13,50 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_PoseEntries:
   - path: Hips
-    localPosition: {x: 0, y: -3.15, z: 0}
+    localPosition: {x: 0, y: -1.66, z: 0}
     localRotation: {x: 0, y: 0, z: 0.7071068, w: 0.7071068}
     localScale: {x: 1, y: 1, z: 1}
   - path: Hips/LowerCorp
-    localPosition: {x: 2.6941984, y: -0.67863965, z: 0}
-    localRotation: {x: -0, y: -0, z: -0.07311338, w: 0.9973237}
-    localScale: {x: 1, y: 1, z: 1}
+    localPosition: {x: 1.312099, y: -0.33931983, z: 0}
+    localRotation: {x: -0, y: -0, z: -0.073113315, w: 0.99732363}
+    localScale: {x: 0.5000007, y: 0.5000007, z: 1}
   - path: Hips/LowerCorp/UpperCorp
-    localPosition: {x: 1.0000166, y: 2.3283064e-10, z: 0}
-    localRotation: {x: 0, y: 0, z: 0.35095343, w: 0.93639296}
+    localPosition: {x: 1.000019, y: 0.0000000038417003, z: 0}
+    localRotation: {x: 0, y: 0, z: 0.35095322, w: 0.936393}
     localScale: {x: 1, y: 1, z: 1}
   - path: Hips/LowerCorp/UpperCorp/Head
-    localPosition: {x: 1.0000006, y: 0.000000014901161, z: 0}
-    localRotation: {x: 0, y: 0, z: 0.14929476, w: 0.9887928}
+    localPosition: {x: 1.0000008, y: -0.0000006556511, z: 0}
+    localRotation: {x: -0, y: -0, z: 0.14929457, w: 0.98879284}
     localScale: {x: 1, y: 1, z: 1}
-  - path: Hips/LowerCorp/UpperCorp/UpperArm
-    localPosition: {x: 0.53926635, y: -0.14011528, z: 0}
-    localRotation: {x: 0, y: 0, z: -0.99814755, w: -0.060839437}
+  - path: Hips/LowerCorp/UpperCorp/Head/UpperArm
+    localPosition: {x: -0.5506775, y: -0.02600677, z: -0.1}
+    localRotation: {x: 0, y: 0, z: -0.9911072, w: -0.13306604}
     localScale: {x: 1, y: 1, z: 1}
-  - path: Hips/LowerCorp/UpperCorp/UpperArm/LowerArm
-    localPosition: {x: 1.2601048, y: -0.016102612, z: 0}
-    localRotation: {x: -0, y: -0, z: -0.7219773, w: 0.6919168}
+  - path: Hips/LowerCorp/UpperCorp/Head/UpperArm/LowerArm
+    localPosition: {x: 1.2096469, y: 0.0000004172325, z: -0.20000002}
+    localRotation: {x: 0, y: 0, z: -0.66345525, w: 0.74821603}
     localScale: {x: 1, y: 1, z: 1}
-  - path: Hips/LowerCorp/LeftUpperLag
-    localPosition: {x: -0.56594896, y: 0.61357343, z: 0}
-    localRotation: {x: 0, y: 0, z: 0.8751913, w: 0.48377708}
+  - path: Hips/LeftUpperLag
+    localPosition: {x: 1.0768901, y: 0.0054551363, z: 0}
+    localRotation: {x: -0, y: -0, z: -0.85156935, w: -0.52424204}
+    localScale: {x: 0.5000013, y: 0.5000013, z: 1}
+  - path: Hips/LeftUpperLag/LeftLowerLag
+    localPosition: {x: 0.74000055, y: -0.00000011920929, z: 0}
+    localRotation: {x: 0, y: 0, z: 0.4892991, w: 0.872116}
     localScale: {x: 1, y: 1, z: 1}
-  - path: Hips/LowerCorp/LeftUpperLag/LeftLowerLag
-    localPosition: {x: 0.7400002, y: 0.00000029802322, z: 0}
-    localRotation: {x: 0, y: 0, z: 0.3597488, w: 0.9330492}
+  - path: Hips/LeftUpperLag/LeftLowerLag/LeftFoot
+    localPosition: {x: 1.000001, y: -0.00000023841858, z: 0}
+    localRotation: {x: 0, y: 0, z: -0.61452854, w: 0.78889465}
     localScale: {x: 1, y: 1, z: 1}
-  - path: Hips/LowerCorp/LeftUpperLag/LeftLowerLag/LeftFoot
-    localPosition: {x: 1.0000006, y: -0.00000017881393, z: 0}
-    localRotation: {x: 0, y: 0, z: -0.5436702, w: 0.83929896}
+  - path: Hips/RightUpperLag
+    localPosition: {x: 1.0882671, y: -0.5804483, z: 0}
+    localRotation: {x: -0, y: -0, z: -0.8993684, w: -0.43719155}
+    localScale: {x: 0.50000155, y: 0.50000155, z: 1}
+  - path: Hips/RightUpperLag/RightLowerLag
+    localPosition: {x: 0.8323841, y: 0.0000012516975, z: 0}
+    localRotation: {x: 0, y: 0, z: 0.72509915, w: 0.68864447}
     localScale: {x: 1, y: 1, z: 1}
-  - path: Hips/LowerCorp/RightUpperLag
-    localPosition: {x: -0.37254748, y: -0.54238576, z: 0}
-    localRotation: {x: 0, y: 0, z: 0.9289262, w: 0.37026495}
-    localScale: {x: 1.0000005, y: 1.0000005, z: 1}
-  - path: Hips/LowerCorp/RightUpperLag/RightLowerLag
-    localPosition: {x: 0.8323837, y: 0.00000023841848, z: 0}
-    localRotation: {x: 0, y: 0, z: 0.80448395, w: 0.5939744}
-    localScale: {x: 1, y: 1, z: 1}
-  - path: Hips/LowerCorp/RightUpperLag/RightLowerLag/RightFoot
-    localPosition: {x: 1.1529938, y: -0.00000011920929, z: 0}
-    localRotation: {x: 0, y: 0, z: -0.86824, w: 0.49614447}
+  - path: Hips/RightUpperLag/RightLowerLag/RightFoot
+    localPosition: {x: 1.1529958, y: -0.0000009536743, z: 0}
+    localRotation: {x: 0, y: 0, z: -0.884787, w: 0.4659956}
     localScale: {x: 1, y: 1, z: 1}
