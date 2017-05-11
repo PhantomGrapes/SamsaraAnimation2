@@ -48,6 +48,7 @@ public class PlayerController : MonoBehaviour {
     public ParticleSystem slashClip4;
     public ParticleSystem slashClip5;
     private DartPivotController dart;
+    private bool isAutoThrow;
     [Header("Camera Shake")]
     public float shakeTimer;
     public float shakeAmount;
@@ -232,28 +233,35 @@ public class PlayerController : MonoBehaviour {
             }
         }
 
+        // dart
         if(dart.finishThrow && (Input.GetKeyDown(KeyCode.K) || Input.GetKeyDown(KeyCode.Joystick1Button3)))
         {
             if (!animator.GetCurrentAnimatorStateInfo(0).IsTag("attack") && !isRolling)
             {
+                isAutoThrow = false;
                 animator.SetTrigger("throw");
                 dart.setThrowParameters();
                 dart.StartRotationSelection();
                 
             }
         }
-        if(dart.finishToThrow && (Input.GetAxisRaw("Horizontal") != 0 && (Input.GetKey(KeyCode.K) || Input.GetKey(KeyCode.Joystick1Button3))))
+        if(dart.finishToThrow && (Input.GetAxisRaw("Vertical") != 0 && (Input.GetKey(KeyCode.K) || Input.GetKey(KeyCode.Joystick1Button3))))
         {
-            dart.AdjustDart(Input.GetAxisRaw("Horizontal"));
+            dart.AdjustDart(Input.GetAxisRaw("Vertical"));
         }
 
-        // 如果人中途取消了，动画回到正常状态，同时需要调用dart.FinishThrow()
-        if((Input.GetKeyUp(KeyCode.K) || Input.GetKeyUp(KeyCode.Joystick1Button3)) && animator.GetCurrentAnimatorClipInfo(0)[0].clip.ToString() == "HS_Attack_Throw (UnityEngine.AnimationClip)")
+        if(!dart.finishToThrow && ((Input.GetKeyUp(KeyCode.K) || Input.GetKeyUp(KeyCode.Joystick1Button3)) && animator.GetCurrentAnimatorClipInfo(0)[0].clip.ToString() == "HS_Attack_Throw (UnityEngine.AnimationClip)"))
+        {
+            isAutoThrow = true;
+        }
+
+        if(dart.finishToThrow && (Input.GetKeyUp(KeyCode.K) || Input.GetKeyUp(KeyCode.Joystick1Button3)) && animator.GetCurrentAnimatorClipInfo(0)[0].clip.ToString() == "HS_Attack_Throw (UnityEngine.AnimationClip)")
         {
             animator.SetTrigger("doThrow");
             dart.StartDart();
         }
 
+        // set status
         if (animator.GetCurrentAnimatorStateInfo(0).IsTag("attack"))
         {
             isAttacking = true;
@@ -411,5 +419,14 @@ public class PlayerController : MonoBehaviour {
     public void FinishThrow()
     {
         dart.FinishThrow();
+    }
+
+    public void CheckAutoThrow()
+    {
+        if (isAutoThrow)
+        {
+            animator.SetTrigger("doThrow");
+            dart.StartDart();
+        }
     }
 }

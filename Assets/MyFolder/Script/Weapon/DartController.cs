@@ -12,12 +12,14 @@ public class DartController : MonoBehaviour {
         if(whatIsGround == (whatIsGround | (1 << collision.gameObject.layer)))
         {
             GetComponent<Rigidbody2D>().velocity = Vector2.zero;
+            GetComponent<Rigidbody2D>().gravityScale = 0f;
         }
 
         if (whatIsEnemy == (whatIsEnemy | (1 << collision.gameObject.layer)))
         {
             // 守卫被攻击
             GetComponent<Rigidbody2D>().velocity = Vector2.zero;
+            GetComponent<Rigidbody2D>().gravityScale = 0f;
             transform.parent = collision.transform;
         }
     }

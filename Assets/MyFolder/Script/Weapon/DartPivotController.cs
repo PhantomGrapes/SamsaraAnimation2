@@ -27,8 +27,8 @@ public class DartPivotController : MonoBehaviour {
 
         dartWidth = dartSprite.bounds.size.x * dart.localScale.x;
         dartHeight = dartSprite.bounds.size.y * dart.localScale.y;
-        dart.localRotation = Quaternion.Euler(0,0,0);
-        dart.localPosition = new Vector2(-dartWidth / 2, 0);
+        //dart.localRotation = Quaternion.Euler(0,0,0);
+        //dart.localPosition = new Vector2(0, 0);
         dart.GetComponent<Rigidbody2D>().gravityScale = 0f;
         finishThrow = true;
         InitDart();
@@ -38,7 +38,8 @@ public class DartPivotController : MonoBehaviour {
     {
         transform.localPosition = Vector2.zero;
         dart.localRotation = Quaternion.identity;
-        dart.localPosition = new Vector2(-dartWidth / 2, 0);
+        dart.localPosition = new Vector2(0, 0);
+        dart.GetChild(0).localPosition = new Vector2(-dart.GetChild(0).GetComponent<SpriteRenderer>().sprite.bounds.size.x * dart.GetChild(0).localScale.x / 2, 0);
     }
 
     void InitDart()
@@ -59,10 +60,10 @@ public class DartPivotController : MonoBehaviour {
         dart.gameObject.SetActive(true);
     }
 
-    public void AdjustDart(float xInput)
+    public void AdjustDart(float yInput)
     {
-        float tiltAroundZ = transform.eulerAngles.z + xInput * rotationSpeed;
-        if (Mathf.Abs(transform.localEulerAngles.z + xInput * rotationSpeed * Time.deltaTime - initialDegree) < rotationAngleLimit || Mathf.Abs(360 - (transform.localEulerAngles.z + xInput * rotationSpeed * Time.deltaTime - initialDegree)) < rotationAngleLimit)
+        float tiltAroundZ = transform.eulerAngles.z + yInput * rotationSpeed;
+        if (Mathf.Abs(transform.localEulerAngles.z + 2 * yInput * rotationSpeed * Time.deltaTime - initialDegree) < rotationAngleLimit || Mathf.Abs(360 - (transform.localEulerAngles.z + 2 * yInput * rotationSpeed * Time.deltaTime - initialDegree)) < rotationAngleLimit)
         {
             Quaternion target = Quaternion.Euler(0, 0, tiltAroundZ);
             transform.rotation = Quaternion.Slerp(transform.rotation, target, Time.deltaTime);
@@ -76,6 +77,7 @@ public class DartPivotController : MonoBehaviour {
         newDart.GetComponent<Rigidbody2D>().velocity = dart.transform.TransformDirection(new Vector2(-dartSpeed, 0));
         newDart.transform.parent = null;
         newDart.GetComponent<Rigidbody2D>().gravityScale = dartGravity;
+        newDart.transform.GetChild(0).gameObject.SetActive(false);
         InitDart();
     }
 

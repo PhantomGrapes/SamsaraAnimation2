@@ -907,7 +907,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1052208830}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 1.49, y: 0, z: 0}
+  m_LocalPosition: {x: -1.49, y: 0, z: 0}
   m_LocalScale: {x: 3.9888277, y: 0.4473244, z: 1}
   m_Children: []
   m_Father: {fileID: 1932925095}
@@ -1334,7 +1334,7 @@ Prefab:
     - target: {fileID: 114018282895183624, guid: 231117cd5a3cb6f4680e6bdbf45653e5,
         type: 2}
       propertyPath: initialDegree
-      value: 30
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 212556979321647282, guid: 231117cd5a3cb6f4680e6bdbf45653e5,
         type: 2}
@@ -1361,6 +1361,16 @@ Prefab:
     - target: {fileID: 4839759213582662, guid: 231117cd5a3cb6f4680e6bdbf45653e5, type: 2}
       propertyPath: m_LocalScale.z
       value: 0.46657398
+      objectReference: {fileID: 0}
+    - target: {fileID: 114018282895183624, guid: 231117cd5a3cb6f4680e6bdbf45653e5,
+        type: 2}
+      propertyPath: dartGravity
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 114018282895183624, guid: 231117cd5a3cb6f4680e6bdbf45653e5,
+        type: 2}
+      propertyPath: dartSpeed
+      value: 20
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 231117cd5a3cb6f4680e6bdbf45653e5, type: 2}
