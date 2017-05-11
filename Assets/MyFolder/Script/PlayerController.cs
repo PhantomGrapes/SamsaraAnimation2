@@ -248,15 +248,11 @@ public class PlayerController : MonoBehaviour {
         }
 
         // 如果人中途取消了，动画回到正常状态，同时需要调用dart.FinishThrow()
-        if(Input.GetKeyUp(KeyCode.K) || Input.GetKeyUp(KeyCode.Joystick1Button3))
+        if((Input.GetKeyUp(KeyCode.K) || Input.GetKeyUp(KeyCode.Joystick1Button3)) && animator.GetCurrentAnimatorClipInfo(0)[0].clip.ToString() == "HS_Attack_Throw (UnityEngine.AnimationClip)")
         {
             animator.SetTrigger("doThrow");
             dart.StartDart();
         }   
-        else
-        {
-            animator.ResetTrigger("doThrow");
-        }
 
         if (animator.GetCurrentAnimatorStateInfo(0).IsTag("attack"))
         {
