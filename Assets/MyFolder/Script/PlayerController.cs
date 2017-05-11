@@ -20,6 +20,8 @@ public class PlayerController : MonoBehaviour {
     public float jumpMaxHeight;
     public float jumpMinHeight;
     public float jumpMaxTime;
+    public float groundDetectorWidth;
+    public float groundDetectorHeight;
     float jumpMaxVelocity;
     float jumpMinVelocity;
     [Header("DoubleJump")]
@@ -139,7 +141,7 @@ public class PlayerController : MonoBehaviour {
 
     void Jump()
     {
-        grounded = Physics2D.OverlapBox(transform.position + new Vector3(0, -1.6f, 0), new Vector2(1, 0.1f), 0, groundMask);
+        grounded = Physics2D.OverlapBox(transform.position + new Vector3(0, -height / 2, 0), new Vector2(groundDetectorWidth, groundDetectorHeight), 0, groundMask);
         if (grounded)
         {
             if (Input.GetKeyDown(KeyCode.Space) || Input.GetKeyDown(KeyCode.Joystick1Button0))
@@ -151,7 +153,7 @@ public class PlayerController : MonoBehaviour {
 
     void DoubleJump()
     {
-        grounded = Physics2D.OverlapBox(transform.position + new Vector3(0, -1.6f, 0), new Vector2(1.3f, 0.1f), 0, groundMask);
+        grounded = Physics2D.OverlapBox(transform.position + new Vector3(0, -height / 2, 0), new Vector2(groundDetectorWidth, groundDetectorHeight), 0, groundMask);
         if (grounded && !isAttacking && !isAttackingTrans)
         {
             if (Input.GetKeyDown(KeyCode.Space) || Input.GetKeyDown(KeyCode.Joystick1Button0))
@@ -327,7 +329,7 @@ public class PlayerController : MonoBehaviour {
     {
         Gizmos.color = Color.red;
         Gizmos.DrawWireCube(transform.position, new Vector3(1, 3.2f, 0.1f));
-        Gizmos.DrawWireCube(transform.position + new Vector3(0, -1.6f, 0), new Vector3(1.3f, 0.1f, 0.1f));
+        Gizmos.DrawWireCube(transform.position + new Vector3(0, -height/2, 0), new Vector3(groundDetectorWidth, groundDetectorHeight, 0.1f));
     }
 
     // 爬墙函数们
