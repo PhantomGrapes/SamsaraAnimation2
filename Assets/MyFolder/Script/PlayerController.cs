@@ -252,7 +252,13 @@ public class PlayerController : MonoBehaviour {
         {
             animator.SetTrigger("doThrow");
             dart.StartDart();
-        }   
+        }
+
+        if ((Input.GetKeyDown(KeyCode.O) || Input.GetKeyUp(KeyCode.Joystick1Button1)) && animator.GetCurrentAnimatorClipInfo(0)[0].clip.ToString() == "HS_Attack_Throw (UnityEngine.AnimationClip)")
+        {
+            animator.SetTrigger("cancelThrow");
+            dart.FinishThrow();
+        }
 
         if (animator.GetCurrentAnimatorStateInfo(0).IsTag("attack"))
         {
