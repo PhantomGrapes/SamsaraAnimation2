@@ -63,7 +63,7 @@ public class DartPivotController : MonoBehaviour {
     public void AdjustDart(float yInput)
     {
         float tiltAroundZ = transform.eulerAngles.z + yInput * rotationSpeed;
-        if (Mathf.Abs(transform.localEulerAngles.z + 2 * yInput * rotationSpeed * Time.deltaTime - initialDegree) < rotationAngleLimit || Mathf.Abs(360 - (transform.localEulerAngles.z + 2 * yInput * rotationSpeed * Time.deltaTime - initialDegree)) < rotationAngleLimit)
+        if (Mathf.Abs(transform.localEulerAngles.z + 10 * yInput * rotationSpeed * Time.deltaTime - initialDegree) < rotationAngleLimit || Mathf.Abs(360 - (transform.localEulerAngles.z + 10 * yInput * rotationSpeed * Time.deltaTime - initialDegree)) < rotationAngleLimit)
         {
             Quaternion target = Quaternion.Euler(0, 0, tiltAroundZ);
             transform.rotation = Quaternion.Slerp(transform.rotation, target, Time.deltaTime);

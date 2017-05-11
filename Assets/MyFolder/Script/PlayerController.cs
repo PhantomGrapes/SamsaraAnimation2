@@ -252,7 +252,7 @@ public class PlayerController : MonoBehaviour {
             dart.AdjustDart(Input.GetAxisRaw("Vertical"));
         }
 
-        if(!dart.finishToThrow && ((Input.GetKeyUp(KeyCode.K) || Input.GetKeyUp(KeyCode.Joystick1Button3)) && animator.GetCurrentAnimatorClipInfo(0)[0].clip.ToString() == "HS_Attack_Throw (UnityEngine.AnimationClip)"))
+        if(!dart.finishToThrow && ((Input.GetKeyUp(KeyCode.K) || Input.GetKeyUp(KeyCode.Joystick1Button3)) ))//&& animator.GetCurrentAnimatorClipInfo(0)[0].clip.ToString() == "HS_Attack_Throw (UnityEngine.AnimationClip)"))
         {
             isAutoThrow = true;
         }

@@ -1212,6 +1212,11 @@ Prefab:
       propertyPath: dartSpeed
       value: 20
       objectReference: {fileID: 0}
+    - target: {fileID: 114018282895183624, guid: 231117cd5a3cb6f4680e6bdbf45653e5,
+        type: 2}
+      propertyPath: initialDegree
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 231117cd5a3cb6f4680e6bdbf45653e5, type: 2}
   m_IsPrefabParent: 0
