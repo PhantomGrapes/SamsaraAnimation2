@@ -1140,9 +1140,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 670b73933f810e94892d8cb0cbf53348, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  initialDegree: 30
-  dartSpeed: 10
-  dartGravity: 0
+  initialDegree: 0
+  dartSpeed: 20
+  dartGravity: 2
   rotationSpeed: 30
   rotationAngleLimit: 30
   finishToThrow: 0

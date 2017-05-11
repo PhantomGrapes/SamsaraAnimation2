@@ -644,7 +644,7 @@ Camera:
   far clip plane: 1000
   field of view: 60
   orthographic: 1
-  orthographic size: 5
+  orthographic size: 8
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
@@ -690,7 +690,7 @@ MonoBehaviour:
   m_ZDampTime: 0.2
   m_ZoomDampTime: 0.2
   m_ScreenEdgeBuffer: 3
-  m_MinSize: 6.5
+  m_MinSize: 8
   x_Offset: 0
   y_Offset: 2
   m_Targets: []
@@ -1201,21 +1201,6 @@ Prefab:
         type: 2}
       propertyPath: m_Mesh
       value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 114018282895183624, guid: 231117cd5a3cb6f4680e6bdbf45653e5,
-        type: 2}
-      propertyPath: dartGravity
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 114018282895183624, guid: 231117cd5a3cb6f4680e6bdbf45653e5,
-        type: 2}
-      propertyPath: dartSpeed
-      value: 20
-      objectReference: {fileID: 0}
-    - target: {fileID: 114018282895183624, guid: 231117cd5a3cb6f4680e6bdbf45653e5,
-        type: 2}
-      propertyPath: initialDegree
-      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 231117cd5a3cb6f4680e6bdbf45653e5, type: 2}
