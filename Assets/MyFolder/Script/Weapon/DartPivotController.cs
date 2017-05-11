@@ -10,6 +10,7 @@ public class DartPivotController : MonoBehaviour {
     float dartHeight;
     public float initialDegree;
     public float dartSpeed;
+    public float dartGravity;
     // in degree
     public float rotationSpeed;
     public float rotationAngleLimit;
@@ -27,7 +28,7 @@ public class DartPivotController : MonoBehaviour {
         dartWidth = dartSprite.bounds.size.x * dart.localScale.x;
         dartHeight = dartSprite.bounds.size.y * dart.localScale.y;
         dart.localRotation = Quaternion.Euler(0,0,0);
-        dart.localPosition = new Vector2(dartWidth / 2, 0);
+        dart.localPosition = new Vector2(-dartWidth / 2, 0);
         dart.GetComponent<Rigidbody2D>().gravityScale = 0f;
         finishThrow = true;
         InitDart();
@@ -37,6 +38,7 @@ public class DartPivotController : MonoBehaviour {
     {
         transform.localPosition = Vector2.zero;
         dart.localRotation = Quaternion.identity;
+        dart.localPosition = new Vector2(-dartWidth / 2, 0);
     }
 
     void InitDart()
@@ -73,6 +75,7 @@ public class DartPivotController : MonoBehaviour {
         GameObject newDart = Instantiate(dart.gameObject, dart.transform.position, dart.rotation);
         newDart.GetComponent<Rigidbody2D>().velocity = dart.transform.TransformDirection(new Vector2(-dartSpeed, 0));
         newDart.transform.parent = null;
+        newDart.GetComponent<Rigidbody2D>().gravityScale = dartGravity;
         InitDart();
     }
 

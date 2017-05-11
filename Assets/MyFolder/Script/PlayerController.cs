@@ -156,8 +156,8 @@ public class PlayerController : MonoBehaviour {
             if (Input.GetKeyDown(KeyCode.Space) || Input.GetKeyDown(KeyCode.Joystick1Button0))
             {
                 player.velocity = new Vector2(player.velocity.x, jumpMaxVelocity);
+                canDoubleJump = true;
             }
-            canDoubleJump = true;
         }
         else if (!grounded && !isAttacking && !isAttackingTrans && canDoubleJump)
         {
