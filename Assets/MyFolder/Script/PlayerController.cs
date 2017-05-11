@@ -259,7 +259,7 @@ public class PlayerController : MonoBehaviour {
             animator.SetTrigger("cancelThrow");
             dart.FinishThrow();
         }
-
+        
         if (animator.GetCurrentAnimatorStateInfo(0).IsTag("attack"))
         {
             isAttacking = true;
