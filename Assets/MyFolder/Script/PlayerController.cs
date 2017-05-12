@@ -97,6 +97,7 @@ public class PlayerController : MonoBehaviour {
 
     void Move()
     {
+        
         float targetVelocityX = Input.GetAxisRaw("Horizontal") * movementSpeed;
         player.velocity = new Vector2(Mathf.SmoothDamp(player.velocity.x, targetVelocityX, ref refVelocityX, 0.02f), player.velocity.y);
 
