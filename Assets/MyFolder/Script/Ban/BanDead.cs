@@ -6,7 +6,7 @@ public class BanDead : BanItem
 {
     private void Start()
     {
-        name = "Dead";
-        banList = new string[] { "Roll", "Move", "Attack", "Hit", "Dead", "GrabLedge", "Celling", "Jump", "DoubleJump" };
+        name = "dead";
+        banList = new string[] { "roll", "move", "attack", "hit", "dead", "grabLedge", "celling", "jump", "doubleJump", "throw" };
     }
 }

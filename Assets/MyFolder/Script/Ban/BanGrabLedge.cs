@@ -6,7 +6,7 @@ public class BanGrabLedge : BanItem {
 
     private void Start()
     {
-        name = "GrabLedge";
-        banList = new string[] { "Walk", "Jump", "DoubleJump", "Roll", "Attack", "Hit", " Dead" };
+        name = "grabLedge";
+        banList = new string[] { "move", "jump", "doubleJump", "roll", "attack", "hit", " dead", "throw" };
     }
 }

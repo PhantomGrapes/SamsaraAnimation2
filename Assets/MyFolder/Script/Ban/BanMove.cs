@@ -6,7 +6,7 @@ public class BanMove : BanItem {
 
     private void Start()
     {
-        name = "Move";
-        banList = new string[] { "GrabLedge" };
+        name = "move";
+        banList = new string[] { "grabLedge", "celling" };
     }
 }

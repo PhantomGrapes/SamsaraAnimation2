@@ -6,7 +6,7 @@ public class BanCelling : BanItem
 {
     private void Start()
     {
-        name = "Celling";
-        banList = new string[] { "Roll", "Move", "Attack", "Hit", "Dead", "GrabLedge" };
+        name = "celling";
+        banList = new string[] { "roll", "move", "attack", "hit", "dead", "grabLedge", "celling" };
     }
 }
