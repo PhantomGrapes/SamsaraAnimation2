@@ -3,29 +3,65 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class BanController : MonoBehaviour {
-    public BanItem[] banItems;
-	
-    BanItem FindItem(string name)
+    private BanItem[] banItems;
+    private BanItem empty;
+
+    private void Start()
+    {
+        banItems = FindObjectOfType<BanItem>().GetComponents<BanItem>();
+        empty = new BanItem();
+        empty.name = "empty";
+        empty.banList = new string[] { };
+    }
+
+    public BanItem FindItem(AnimatorStateInfo s)
+    {
+        for (int i = 0; i < banItems.Length; i++)
+        {
+            if (s.IsTag(banItems[i].name))
+                return banItems[i];
+        }
+        
+        return empty;
+    }
+
+    public BanItem FindItem(string name)
     {
         for (int i = 0; i < banItems.Length; i++)
         {
             if (banItems[i].name == name)
                 return banItems[i];
         }
-        throw new System.Exception("Can find corresponding ban item.");
+        return empty;
     }
-    public void StartBanWhile(string name)
+    public void StartBanWhile(AnimatorStateInfo s)
     {
-        BanItem item = FindItem(name);
+        BanItem item = FindItem(s);
         for (int i = 0; i < item.banList.Length; i++)
         {
             FindItem(item.banList[i]).StartBan();
         }
     }
 
-    public void EndBanWhile(string name)
+    public void StartBanWhile(BanItem item)
     {
-        BanItem item = FindItem(name);
+        for (int i = 0; i < item.banList.Length; i++)
+        {
+            FindItem(item.banList[i]).StartBan();
+        }
+    }
+
+    public void EndBanWhile(AnimatorStateInfo s)
+    {
+        BanItem item = FindItem(s);
+        for (int i = 0; i < item.banList.Length; i++)
+        {
+            FindItem(item.banList[i]).EndBan();
+        }
+    }
+
+    public void EndBanWhile(BanItem item)
+    {
         for (int i = 0; i < item.banList.Length; i++)
         {
             FindItem(item.banList[i]).EndBan();

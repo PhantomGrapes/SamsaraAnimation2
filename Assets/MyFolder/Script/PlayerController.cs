@@ -6,6 +6,8 @@ public class PlayerController : MonoBehaviour {
 
     Rigidbody2D player;
     public Animator animator;
+    BanItem previousBan;
+    BanController ban;
     [Header("ShapeInformation")]
     public float width;
     public float height;
@@ -62,7 +64,9 @@ public class PlayerController : MonoBehaviour {
         animator = GetComponent<Animator>();
         grabLedgeController = FindObjectOfType<GrabLedgeController>();
         dart = FindObjectOfType<DartPivotController>();
+        ban = GetComponent<BanController>();
 
+        previousBan = null;
         width = GetComponent<BoxCollider2D>().size.x + 0.2f;
         height = GetComponent<BoxCollider2D>().size.y + 0.2f;
 
@@ -76,18 +80,12 @@ public class PlayerController : MonoBehaviour {
 	void Update () {
 
         StateMachine();
+        SetBan();
 
         // if player is grabbing ledge, following process will not be done 
-        if (GrabLedge())
-        {
-            //print(transform.position);
-            return;
-        }
+        GrabLedge();
 
-        if (!isRolling && !isAttacking && !isAttackingTrans)
-        {
-            Move();
-        }
+        Move();
 
         Attack();
         //Jump();
@@ -95,19 +93,31 @@ public class PlayerController : MonoBehaviour {
         Roll(); 
 	}
 
+    void SetBan()
+    {
+        AnimatorStateInfo animationState = animator.GetCurrentAnimatorStateInfo(0);
+        
+        if (previousBan == null || previousBan.name != ban.FindItem(animationState).name)
+        {
+            if (previousBan)
+                ban.EndBanWhile(previousBan);
+            ban.StartBanWhile(animationState);
+            previousBan = ban.FindItem(animationState);
+        }
+    }
+
     void Move()
     {
-        
         float targetVelocityX = Input.GetAxisRaw("Horizontal") * movementSpeed;
         player.velocity = new Vector2(Mathf.SmoothDamp(player.velocity.x, targetVelocityX, ref refVelocityX, 0.02f), player.velocity.y);
 
-        if(Input.GetAxisRaw("Horizontal") > 0)
+        if(Input.GetAxisRaw("Horizontal") > 0 && ban.Check("move"))
         {
             facingRight = true;
             running = true;
             transform.localScale = new Vector3(1, 1, 1);
         }
-        else if(Input.GetAxisRaw("Horizontal") < 0)
+        else if(Input.GetAxisRaw("Horizontal") < 0 && ban.Check("move"))
         {
             facingRight = false;
             running = true;
@@ -119,25 +129,20 @@ public class PlayerController : MonoBehaviour {
         }
     }
 
-    bool GrabLedge()
+    void GrabLedge()
     {
         if (isMovingToFootHold)
         {
             GrabMoveToFootHold();
-            return true;
         }
         else if (isMovingToPlatform)
         {
             GrabMoveToPlatform();
-            return true;
         }
-        else if (grabLedgeController.ledgeDetected && Input.GetAxisRaw("Horizontal") != 0)
+        else if (grabLedgeController.ledgeDetected && Input.GetAxisRaw("Horizontal") != 0 && ban.Check("grabLedge"))
         {
             GrabStart();
-            return true;
         }
-        else
-            return false;
     }
 
     void Jump()
@@ -155,7 +160,7 @@ public class PlayerController : MonoBehaviour {
     void DoubleJump()
     {
         grounded = Physics2D.OverlapBox(transform.position + new Vector3(0, -height / 2, 0), new Vector2(groundDetectorWidth, groundDetectorHeight), 0, groundMask);
-        if (grounded && !isAttacking && !isAttackingTrans)
+        if (grounded && ban.Check("jump"))
         {
             if (Input.GetKeyDown(KeyCode.Space) || Input.GetKeyDown(KeyCode.Joystick1Button0))
             {
@@ -163,7 +168,7 @@ public class PlayerController : MonoBehaviour {
                 canDoubleJump = true;
             }
         }
-        else if (!grounded && !isAttacking && !isAttackingTrans && canDoubleJump)
+        else if (!grounded && ban.Check("doubleJump") && canDoubleJump)
         {
             if (Input.GetKeyDown(KeyCode.Space) || Input.GetKeyDown(KeyCode.Joystick1Button0))
             {
@@ -179,7 +184,8 @@ public class PlayerController : MonoBehaviour {
 
     void Roll()
     {
-        if (grounded)
+        
+        if (grounded && ban.Check("roll"))
         {
             if (facingRight)
             {
@@ -228,9 +234,9 @@ public class PlayerController : MonoBehaviour {
     {
         CheckPressDownAndUp();
 
-        if (Input.GetKeyDown(KeyCode.J) || Input.GetKeyDown(KeyCode.Joystick1Button2))
+        if (Input.GetKeyDown(KeyCode.J) || Input.GetKeyDown(KeyCode.Joystick1Button2) )
         {
-            if (!animator.GetCurrentAnimatorStateInfo(0).IsTag("attack") && !isRolling)
+            if (ban.Check("attack"))
             {
                 animator.SetTrigger("attack");
             }
@@ -239,7 +245,7 @@ public class PlayerController : MonoBehaviour {
         // dart
         if(dart.finishThrow && (Input.GetKeyDown(KeyCode.K) || Input.GetKeyDown(KeyCode.Joystick1Button3)))
         {
-            if (!animator.GetCurrentAnimatorStateInfo(0).IsTag("attack") && !isRolling)
+            if (ban.Check("attack"))
             {
                 isAutoThrow = false;
                 animator.SetTrigger("throw");

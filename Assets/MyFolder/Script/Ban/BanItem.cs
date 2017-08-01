@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class BanItem : MonoBehaviour {
     public string name;
-    int current;
+    public int current;
     public string[] banList;
 	
     void Start()
