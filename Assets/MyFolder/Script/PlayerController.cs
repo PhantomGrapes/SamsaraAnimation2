@@ -292,7 +292,7 @@ public class PlayerController : MonoBehaviour {
 
         if (isAttacking)
         {
-            player.velocity = new Vector2(0, 0);
+            player.velocity = new Vector2(0, player.velocity.y);
         }
     }
 
